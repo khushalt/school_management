@@ -1,13 +1,16 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 import datetime
-from .database import Model
+from .database import Base
 
 
-class BaseModel(Model):
-    created_at = Column(DateTime(timezone=True),
-                        server_default=datetime.datetime.now())
+# class BaseModel(Model): pass
 
 
-class Student(BaseModel):
+# created_at = Column(DateTime(timezone=True),
+#                     server_default=datetime.datetime.now())
+
+
+class Student(Base):
     __tablename__ = "user"
+    id = Column(Integer, primary_key=True, index=True)
